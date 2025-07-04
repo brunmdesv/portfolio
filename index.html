@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno - Designer Gráfico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Font Face Declarations for Otterco */
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-SemiBold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-ExtraLight.otf') format('opentype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Thin.otf') format('opentype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Otterco Display for headings */
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-SemiBold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Otterco', 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #181c20;
+            color: #e3e3e3;
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-size: 18px;
+            padding-top: 110px; /* Compensar o header fixo */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #181c20;
+            padding: 2rem 0 1.5rem 0;
+            border-bottom: 1.5px solid #23282e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(24, 28, 32, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile header adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0 0.8rem 0;
+            }
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            filter: grayscale(0.1) contrast(1.1);
+            display: block;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e3e3e3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f35b25;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            background: #181c20;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #f35b25;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(243, 91, 37, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .hero-text p {
+            font-size: 1.08rem;
+            color: #e3e3e3;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.13rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #f35b25;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #ff7849;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(243, 91, 37, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e3e3e3;
+            border: 2px solid #e3e3e3;
+        }
+
+        .btn-secondary:hover {
+            background: #e3e3e3;
+            color: #181c20;
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: #191e23;
+            border-bottom: 1.5px solid #23282e;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.1rem;
+            margin-bottom: 30px;
+            color: #f35b25;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .about-text p {
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: #e3e3e3;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: #20262c;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .stat-number {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #f35b25;
+            display: block;
+        }
+
+        .stat-label {
+            color: #e3e3e3;
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: #181c20;
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: #20262c;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1.5px solid #23282e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(243, 91, 37, 0.2);
+            border-color: #f35b25;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .skill-card h3 {
+            color: #f35b25;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #e3e3e3;
+            line-height: 1.6;
+            opacity: 0.95;
+            font-size: 1.04rem;
+        }
+
+        /* Fun Facts */
+        .fun-facts {
+            padding: 100px 0;
+            background: #191e23;
+            border-bottom: 1.5px solid #23282e;
+        }
+
+        .fun-facts h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .fact-card {
+            background: #20262c;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .fact-card h3 {
+            color: #f35b25;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .fact-card p {
+            color: #e3e3e3;
+            line-height: 1.6;
+            opacity: 0.95;
+            font-size: 1.04rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            text-align: center;
+            background: #181c20;
+        }
+
+        .contact h2 {
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .contact p {
+            font-size: 1.08rem;
+            color: #e3e3e3;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .whatsapp-btn {
+            background: #f35b25;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.13rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #ff7849;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(243, 91, 37, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1.5px solid #23282e;
+            background: #181c20;
+        }
+
+        footer p {
+            color: #e3e3e3;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Mobile-first approach */
+        
+        /* Base styles for mobile */
+        body {
+            padding-top: 60px; /* Menor padding para mobile */
+        }
+
+        .logo {
+            max-width: 140px; /* Menor no mobile */
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-size: 3.0rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: #e3e3e3;
+            line-height: 1.6;
+            margin: 0 auto 30px;
+            padding: 0 10px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #f35b25;
+            object-fit: cover;
+            box-shadow: 0 15px 30px rgba(243, 91, 37, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 280px;
+            justify-content: center;
+        }
+
+        .about {
+            padding: 80px 0;
+            background: #191e23;
+        }
+
+        .about-content {
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #f35b25;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #e3e3e3;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: #20262c;
+            border-radius: 15px;
+            border: 1.5px solid #23282e;
+        }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f35b25;
+            display: block;
+        }
+
+        .stat-label {
+            color: #e3e3e3;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        .skills {
+            padding: 80px 0;
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #f35b25;
+            margin-bottom: 50px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #20262c;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1.5px solid #23282e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card h3 {
+            color: #f35b25;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: #e3e3e3;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .fun-facts {
+            padding: 80px 0;
+            background: #191e23;
+        }
+
+        .fun-facts h2 {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #f35b25;
+            margin-bottom: 50px;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .fact-card {
+            background: #20262c;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+        }
+
+        .fact-card h3 {
+            color: #f35b25;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fact-card p {
+            color: #e3e3e3;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 1.3rem;
+            color: #f35b25;
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            font-size: 1.05rem;
+            color: #e3e3e3;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+
+        .whatsapp-btn {
+            background: #f35b25;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            width: 280px;
+            justify-content: center;
+        }
+
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            body {
+                padding-top: 110px; /* Padding normal para tablet/desktop */
+            }
+
+            .logo {
+                max-width: 180px; /* Tamanho normal para tablet/desktop */
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.08rem;
+                max-width: 600px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                border: 5px solid #f35b25;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .btn {
+                width: auto;
+                padding: 15px 30px;
+                font-size: 1.13rem;
+            }
+
+            .about {
+                padding: 100px 0;
+            }
+
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+            }
+
+            .about-text h2 {
+                font-size: 2.1rem;
+                text-align: left;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .stat-item {
+                padding: 30px;
+            }
+
+            .skills {
+                padding: 100px 0;
+            }
+
+            .skills h2 {
+                font-size: 2.3rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .facts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .whatsapp-btn {
+                width: auto;
+                padding: 20px 40px;
+                font-size: 1.13rem;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3.3rem;
+            }
+
+            .hero-text p {
+                font-size: 1.08rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .facts-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #FDFDFD;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(211, 211, 211, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-whatsapp:hover {
+            background: #f35b25;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(211, 115, 37, 0.6);
+        }
+
+        .floating-whatsapp img {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Mobile adjustments for floating button */
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .floating-whatsapp img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="https://i.ibb.co/Jw3MCbgD/logo-BRUNOMAYKON-1920-fundo-escuro.png" alt="Bruno Maykon">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <img src="https://i.ibb.co/ynVSdH7G/Bruno-Maykon.png" alt="Bruno Maykon - Designer Gráfico" class="profile-image">
+                <div class="hero-text">
+                    <h1>Oi! Eu sou o Bruno.</h1>
+                    <p>Designer que ama criar coisas bonitas e funcionais. Do logo ao app, do livro ao site - se você imagina, eu faço acontecer.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://www.behance.net/gallery/218025613/Portfolio-2025-Graphic-Design" target="_blank" class="btn btn-primary">
+                        🎨 Veja meu trabalho
+                    </a>
+                    <a href="https://wa.me/5586988695332?text=Olá%20Bruno!%20Vi%20seu%20site%20e%20tenho%20um%20projeto%20que%20posso%20precisar%20de%20você.%20Podemos%20conversar?" target="_blank" class="btn btn-secondary">
+                        💬 Me conte seu projeto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content animate-on-scroll">
+                <div class="about-text">
+                    <h2>Um pouco sobre mim</h2>
+                    <p>Eu sou o Bruno Maykon, 27 anos, designer há uns 5 anos. Sempre fui meio tímido com meu trabalho, mas resolvi que está na hora de mostrar o que faço pro mundo.</p>
+                    <p>Moro aqui em Parnaíba-PI e sou pai de duas meninas que são a razão do meu sorriso e uma noiva que me apoia em tudo. Elas três são minha maior motivação pra crescer e fazer um trabalho cada vez melhor.</p>
+                    <p>Dependendo do fim de semana, você me encontra acampando ou numa trilha qualquer. Durante a semana to aqui criando, desenvolvendo, sempre com um café do lado. Gosto de música, livros, séries, jogos. Normal, né?</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Anos de experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Projetos realizados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Clientes satisfeitos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24h</span>
+                        <span class="stat-label">Resposta rápida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="animate-on-scroll">MINHAS ESPECIALIDADES</h2>
+            <div class="skills-grid">
+                <div class="skill-card animate-on-scroll">
+                    <span class="skill-icon">🎨</span>
+                    <h3>Design Gráfico</h3>
+                    <p>Identidade visual, logotipos, materiais gráficos que fazem sua marca se destacar no mercado.</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <span class="skill-icon">📱</span>
+                    <h3>Desenvolvimento Digital</h3>
+                    <p>Sites, landing pages, apps mobile e desktop. Do wireframe ao produto final funcionando.</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <span class="skill-icon">📖</span>
+                    <h3>Diagramação Editorial</h3>
+                    <p>Livros, revistas, jornais e materiais editoriais com design profissional e legibilidade perfeita.</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <span class="skill-icon">📊</span>
+                    <h3>Gestão de Tráfego</h3>
+                    <p>Estratégias de marketing digital, anúncios pagos e otimização para conversão.</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <span class="skill-icon">💰</span>
+                    <h3>Páginas de Vendas</h3>
+                    <p>Landing pages e sales pages que convertem visitantes em clientes com design persuasivo.</p>
+                </div>
+                <div class="skill-card animate-on-scroll">
+                    <span class="skill-icon">🖨️</span>
+                    <h3>Material Impresso</h3>
+                    <p>Folders, cartões, catálogos e peças gráficas para impressão com qualidade profissional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fun-facts">
+        <div class="container">
+            <h2 class="animate-on-scroll">CURIOSIDADES SOBRE MIM</h2>
+            <div class="facts-grid">
+                <div class="fact-card animate-on-scroll">
+                    <h3>🏕️ Aventureiro de fim de semana</h3>
+                    <p>Quando não estou criando, você me encontra com a família acampando, fazendo trilhas, algo do tipo. A natureza é minha fonte de inspiração e energia!</p>
+                </div>
+                <div class="fact-card animate-on-scroll">
+                    <h3>📚 Leitor voraz</h3>
+                    <p>Sempre com um livro na mochila! Leio de tudo: ficção, biografias. Conhecimento nunca é demais, né?</p>
+                </div>
+                <div class="fact-card animate-on-scroll">
+                    <h3>🎵 Playlist quase eclética</h3>
+                    <p>Minha playlist vai do jazz ao sertanejo, passando por eletrônica e MPB. Música boa é música que emociona! Exceto Rock... rs</p>
+                </div>
+                <div class="fact-card animate-on-scroll">
+                    <h3>👨‍👧‍👧 Pai orgulhoso</h3>
+                    <p>Duas princesas que me ensinam sobre cores, formas e criatividade todos os dias. Elas são minha maior inspiração!</p>
+                </div>
+                <div class="fact-card animate-on-scroll">
+                    <h3>🌮 Chef de fim de semana</h3>
+                    <p>Adoro cozinhar para a família! Novas receitas é o melhor - você nunca sabe o resultado até testar.</p>
+                </div>
+                <div class="fact-card animate-on-scroll">
+                    <h3>🎮 Gamer casual</h3>
+                    <p>Um bom jogo competitivo online com os amigos. Games também são arte, e eu respeito essa arte! Principalmente DBD.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2 class="animate-on-scroll">VAMOS TRABALHAR JUNTOS?</h2>
+            <p class="animate-on-scroll">Seja uma ideia, um projeto ou só quer bater um papo sobre design? Manda mensagem! Respondo rapidinho e adoro conhecer pessoas novas.</p>
+            <a href="https://wa.me/5586988695332?text=Oi%20Bruno!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" class="whatsapp-btn animate-on-scroll">
+                📱 Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bruno Maykon. Feito com ❤️ e ☕!</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp" onclick="openWhatsApp()">
+        <img src="./icons/icon_whatsapp.png" alt="WhatsApp">
+    </div>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace('+', ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.ceil(current) + (counter.textContent.includes('+') ? '+' : '');
+                    }
+                }, 20);
+            });
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Floating WhatsApp function
+        function openWhatsApp() {
+            const message = "Oi Bruno! Vi seu portfólio e gostaria de conversar sobre um projeto.";
+            const whatsappUrl = `https://wa.me/5586988695332?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Sticky header effect
+        const header = document.querySelector('header');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.style.padding = '0.6rem 0';
+                header.style.background = 'rgba(24, 28, 32, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+                // Ajustar tamanho da logo quando header compacto
+                const logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.style.maxWidth = '140px';
+                }
+            } else {
+                // Restaurar padding baseado no tamanho da tela
+                const isMobile = window.innerWidth <= 768;
+                header.style.padding = isMobile ? '1rem 0 0.8rem 0' : '2rem 0 1.5rem 0';
+                header.style.background = 'rgba(24, 28, 32, 0.95)';
+                header.style.boxShadow = 'none';
+                // Restaurar tamanho da logo
+                const logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.style.maxWidth = window.innerWidth >= 768 ? '180px' : '140px';
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Maykon - Social Media & Design</title>
+    <style>
+        /* Font Face Declarations for Otterco */
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-SemiBold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-ExtraLight.otf') format('opentype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco';
+            src: url('./otterco_fonts/Otterco-Thin.otf') format('opentype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Otterco Display for headings */
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-SemiBold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Otterco Display';
+            src: url('./otterco_fonts/OttercoDisplay-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Otterco', 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #181c20;
+            color: #e3e3e3;
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+            padding-top: 110px; /* Compensar o header fixo */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #181c20;
+            padding: 2rem 0 1.5rem 0;
+            border-bottom: 1.5px solid #23282e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(24, 28, 32, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile header adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.2rem 0 0.2rem 0;
+            }
+        }
+
+
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            filter: grayscale(0.1) contrast(1.1);
+            display: block;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Introduction Section */
+        .intro {
+            padding: 4rem 0 2.5rem 0;
+            background: #181c20;
+            border-bottom: 1.5px solid #23282e;
+        }
+
+        .intro-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 2.1rem;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #f35b25 60%, #ff7849 100%);
+        }
+
+        .intro p {
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: #e3e3e3;
+            opacity: 0.95;
+        }
+
+        /* Plans Section */
+        .plans {
+            padding: 4.5rem 0 3.5rem 0;
+            background: #191e23;
+        }
+
+        .plans-title {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #fff;
+            margin-bottom: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+            font-family: 'Otterco Display', 'Otterco', 'Inter', sans-serif;
+        }
+
+        .plans-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #f35b25 60%, #ff7849 100%);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            justify-items: center;
+        }
+
+        .plan-card {
+            background: #20262c;
+            border-radius: 24px;
+            padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s cubic-bezier(.4,0,.2,1);
+            border: 1.5px solid #23282e;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            min-width: 320px;
+            max-width: 370px;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px) scale(1.025);
+            box-shadow: 0 20px 40px rgba(243, 91, 37, 0.13);
+            border-color: #f35b25;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f35b25 60%, #ff7849 100%);
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 1.7rem;
+        }
+
+        .plan-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f35b25;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-description {
+            color: #e3e3e3;
+            opacity: 0.85;
+            margin-bottom: 1.1rem;
+            font-size: 1.08rem;
+        }
+
+        .plan-price {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #f35b25;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2.2rem;
+            padding-left: 0;
+        }
+
+        .plan-features li {
+            padding: 0.9rem 0 0.9rem 36px;
+            border-bottom: 1px solid rgba(217, 217, 217, 0.08);
+            position: relative;
+            transition: color 0.2s, background 0.2s;
+            border-radius: 8px;
+            font-size: 1.04rem;
+        }
+
+        .plan-features li:hover {
+            color: #f35b25;
+            background: rgba(243,91,37,0.06);
+        }
+
+        .plan-features li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #f35b25;
+            font-weight: bold;
+            font-size: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 1.1rem;
+            background: #f35b25;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.13rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1.2rem;
+        }
+
+        .plan-button:hover {
+            background: #ff7849;
+            color: #fff;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(243, 91, 37, 0.10);
+        }
+
+        .plan-button:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1.5px solid #23282e;
+            background: #181c20;
+        }
+
+        footer p {
+            color: #e3e3e3;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .plan-card {
+                padding: 1.3rem 1rem 1.2rem 1rem;
+            }
+            .intro h2,
+            .plans-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Base styles for mobile */
+        body {
+            padding-top: 70px; /* Menor padding para mobile */
+        }
+
+        .logo {
+            max-width: 160px; /* Maior no mobile */
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 160px;
+            }
+            .plan-card {
+                padding: 1rem 0.5rem 1rem 0.5rem;
+            }
+            .plan-price {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            body {
+                padding-top: 110px; /* Padding normal para tablet/desktop */
+            }
+
+            .logo {
+                max-width: 180px; /* Tamanho normal para tablet/desktop */
+            }
+        }
+
+        @media (min-width: 900px) {
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="https://i.ibb.co/Jw3MCbgD/logo-BRUNOMAYKON-1920-fundo-escuro.png" alt="Bruno Maykon">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content fade-in">
+                <h2>Sua Marca Merece Destaque</h2>
+                <p>No mundo digital de hoje, ter uma presença online forte e estratégica não é apenas um diferencial, é uma necessidade. Com os serviços de Social Media e Design de Bruno Maykon, sua marca terá o suporte necessário para se destacar, conectar-se com seu público e alcançar seus objetivos de negócio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans">
+        <div class="container">
+            <h2 class="plans-title fade-in">Nossos Planos</h2>
+            <div class="plans-grid">
+                <!-- Plano Básico -->
+                <div class="plan-card fade-in">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Básico</h3>
+                        <p class="plan-description">Presença Essencial</p>
+                        <div class="plan-price">R$ 800<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item" data-info="Desenvolvimento de 8 artes gráficas por mês, seguindo a identidade visual do cliente. Inclui pesquisa de referências, criação de layouts, seleção de imagens/ilustrações e revisão.">6 posts estáticos e 2 carrosséis</li>
+                        <li class="feature-item" data-info="Criação de um calendário mensal com sugestões de temas e datas para as publicações, auxiliando na organização do conteúdo.">Calendário editorial básico</li>
+                        <li class="feature-item" data-info="Configuração inicial do perfil (se necessário), otimização da biografia e destaques.">Criação dos destaques</li>
+                        <li class="feature-item" data-info="Desenvolvimento de layouts personalizados para o feed, mantendo a identidade visual da marca.">Criação de layout no feed</li>
+                        <li class="feature-item" data-info="Redação de legendas persuasivas e informativas para cada post, com pesquisa e inclusão de hashtags relevantes para aumentar o alcance.">Criação de legendas</li>
+                        <li class="feature-item" data-info="Utilização de ferramentas de agendamento para garantir que os posts sejam publicados nos horários de maior engajamento.">Publicações no horário de pico</li>
+                        <li class="feature-item" data-info="Pesquisa de tendências e referências visuais para inspirar a criação do conteúdo.">Pesquisa de referências</li>
+                        <li class="feature-item" data-info="Compilação de dados básicos de desempenho (número de likes, comentários, alcance) num relatório conciso, enviado mensalmente para acompanhamento.">Relatório mensal simplificado</li>
+                    </ul>
+                    <button class="plan-button" onclick="contactPlan('Básico')">Escolher Plano</button>
+                </div>
+
+                <!-- Plano Pro -->
+                <div class="plan-card fade-in">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Pro</h3>
+                        <p class="plan-description">Crescimento Acelerado</p>
+                        <div class="plan-price">R$ 1.000<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item" data-info="Inclui todos os serviços do plano básico.">Tudo do plano básico</li>
+                        <li class="feature-item" data-info="Produção de 10 peças de conteúdo por mês, incluindo imagens, carrosséis e designs para stories.">7 posts estáticos e 3 carrosséis</li>
+                        <li class="feature-item" data-info="Criação de um calendário editorial detalhado, com temas, formatos, datas e horários de publicação, alinhado com os objetivos do cliente.">Calendário editorial completo</li>
+                        <li class="feature-item" data-info="Realização de uma análise superficial das estratégias de conteúdo e engajamento de até 3 concorrentes diretos.">Análise de concorrência básica</li>
+                        <li class="feature-item" data-info="Criação de 4 stories semanais com design profissional, utilizando elementos interativos e visuais que captem a atenção do público.">Design de stories (4 por semana)</li>
+                        <li class="feature-item" data-info="Relatório abrangente com análise de métricas de alcance, engajamento, crescimento de seguidores, e sugestões de otimização para o próximo mês.">Relatório mensal detalhado</li>
+                        <li class="feature-item" data-info="Monitorização e resposta a comentários e mensagens diretas (até 1.5 horas por dia), mantendo a comunicação ativa e o relacionamento com a audiência.">Interação com o público moderada</li>
+                    </ul>
+                    <button class="plan-button" onclick="contactPlan('Pro')">Escolher Plano</button>
+                </div>
+
+                <!-- Plano Premium -->
+                <div class="plan-card fade-in">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Premium</h3>
+                        <p class="plan-description">Liderança Digital</p>
+                        <div class="plan-price">R$ 1.200<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li class="feature-item" data-info="Inclui todos os serviços do plano Pro.">Tudo do plano pro</li>
+                        <li class="feature-item" data-info="Produção de 13 peças de conteúdo, incluindo imagens, carrosséis e designs para stories e destaques.">9 posts estáticos e 4 carrosséis</li>
+                        <li class="feature-item" data-info="Desenvolvimento de uma estratégia de conteúdo aprofundada, incluindo pilares de conteúdo, temas recorrentes, e formatos ideais para a rede social e público-alvo.">Estratégia de conteúdo personalizada</li>
+                        <li class="feature-item" data-info="Monitorização e análise detalhada das estratégias de conteúdo, engajamento e crescimento de até 5 concorrentes diretos.">Análise de concorrência aprofundada</li>
+                        <li class="feature-item" data-info="Criação de 6 stories semanais com design exclusivo e interativo, além da criação e otimização de capas e conteúdo para os destaques.">Design de stories (6 por semana)</li>
+                        <li class="feature-item" data-info="Relatório detalhado com análise de desempenho, comparativos com a concorrência, insights sobre o público, tendências de mercado e recomendações estratégicas.">Relatório mensal estratégico</li>
+                        <li class="feature-item" data-info="Gestão proativa da comunidade, respondendo a todos os comentários, mensagens diretas e menções (até 3 horas por dia), além de iniciar conversas, moderar grupos e engajar com seguidores.">Interação e gestão de comunidade</li>
+                    </ul>
+                    <button class="plan-button" onclick="contactPlan('Premium')">Escolher Plano</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bruno Maykon. Feito com ❤️ e ☕!</p>
+        </div>
+    </footer>
+
+    <!-- Adicionar o modal de informações -->
+    <div id="info-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); align-items:center; justify-content:center;">
+        <div style="background:#242d35; color:#fff; max-width:420px; padding:2.5rem 2rem 2rem 2rem; border-radius:18px; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.3); text-align:left;">
+            <button id="close-info-modal" style="position:absolute; top:10px; right:16px; background:none; border:none; color:#f35b25; font-size:1.7rem; cursor:pointer;">&times;</button>
+            <h3 id="info-modal-title" style="color:#f35b25; margin-bottom:1rem; font-size:1.3rem;"></h3>
+            <div id="info-modal-content" style="font-size:1.08rem; line-height:1.7;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Plan selection function
+        function contactPlan(planName) {
+            const message = `Olá Bruno! Tudo bem?\n\nEstou entrando em contato através do seu site porque me interessei pelo plano ${planName}. Gostaria de saber mais detalhes e como podemos iniciar! Aguardo seu retorno.\n\nObrigado!`;
+            const whatsappUrl = `https://wa.me/5586988695332?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.plan-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Modal de informações dos itens dos planos
+        const infoIcons = document.querySelectorAll('.info-icon');
+        const infoModal = document.getElementById('info-modal');
+        const infoModalContent = document.getElementById('info-modal-content');
+        const closeInfoModal = document.getElementById('close-info-modal');
+        const infoModalTitle = document.getElementById('info-modal-title');
+
+        infoIcons.forEach(icon => {
+            icon.style.cursor = 'pointer';
+            icon.title = 'Clique para saber mais';
+            icon.addEventListener('click', function(e) {
+                infoModalTitle.textContent = this.textContent;
+                infoModalContent.textContent = '';
+                // Melhorar o texto do modal
+                const info = this.getAttribute('data-info');
+                infoModalContent.innerHTML = `<span style='color:#f35b25;font-weight:bold;'>O que está incluso:</span><br>${info}`;
+                infoModal.style.display = 'flex';
+            });
+        });
+
+        closeInfoModal.addEventListener('click', function() {
+            infoModal.style.display = 'none';
+        });
+
+        infoModal.addEventListener('click', function(e) {
+            if (e.target === infoModal) {
+                infoModal.style.display = 'none';
+            }
+        });
+
+        // Tornar os itens dos planos clicáveis para mostrar o modal
+        const featureItems = document.querySelectorAll('.feature-item');
+        featureItems.forEach(item => {
+            item.style.cursor = 'pointer';
+            item.title = 'Clique para saber mais';
+            item.addEventListener('click', function(e) {
+                infoModalTitle.textContent = this.textContent;
+                infoModalContent.textContent = '';
+                // Melhorar o texto do modal
+                const info = this.getAttribute('data-info');
+                infoModalContent.innerHTML = `<span style='color:#f35b25;font-weight:bold;'>O que está incluso:</span><br>${info}`;
+                infoModal.style.display = 'flex';
+            });
+        });
+
+        // Sticky header effect
+        const header = document.querySelector('header');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.style.padding = '0.5rem 0';
+                header.style.background = 'rgba(24, 28, 32, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+                // Ajustar tamanho da logo quando header compacto
+                const logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.style.maxWidth = '140px';
+                }
+            } else {
+                // Restaurar padding baseado no tamanho da tela
+                const isMobile = window.innerWidth <= 768;
+                header.style.padding = isMobile ? '0.8rem 0 0.6rem 0' : '2rem 0 1.5rem 0';
+                header.style.background = 'rgba(24, 28, 32, 0.95)';
+                header.style.boxShadow = 'none';
+                // Restaurar tamanho da logo
+                const logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.style.maxWidth = window.innerWidth >= 768 ? '180px' : '160px';
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>
