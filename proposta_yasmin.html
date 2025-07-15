@@ -50,24 +50,28 @@
 
         .nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #f35b25;
-            text-decoration: none;
+        .nav-center {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
+            font-size: 1rem;
+        }
+
+        .nav-links-center {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            font-size: 1rem;
         }
 
         .nav-links a {
@@ -75,10 +79,22 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
         }
 
         .nav-links a:hover {
             color: #f35b25;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 18px;
+                font-size: 0.95rem;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+            }
         }
 
         /* Hero Section */
@@ -666,11 +682,8 @@
 <body>
     <header>
         <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">
-                    🍔 Sistema Hambúrgueria
-                </a>
-                <ul class="nav-links">
+            <nav class="nav nav-center">
+                <ul class="nav-links nav-links-center">
                     <li><a href="#planos">Planos</a></li>
                     <li><a href="#comparacao">Comparação</a></li>
                     <li><a href="#contato">Contato</a></li>
