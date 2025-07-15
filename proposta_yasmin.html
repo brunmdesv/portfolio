@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Hambúrgueria - Proposta Yasmin Soares</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #181c20;
+            color: #e3e3e3;
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-size: 18px;
+            padding-top: 110px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(24, 28, 32, 0.95);
+            padding: 2rem 0 1.5rem 0;
+            border-bottom: 1.5px solid #23282e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0 0.8rem 0;
+            }
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f35b25;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e3e3e3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f35b25;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #181c20 0%, #1e2328 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            background: #f35b25;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 20px 40px rgba(243, 91, 37, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.08rem;
+            color: #e3e3e3;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .client-info {
+            background: #20262c;
+            padding: 20px 40px;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            margin-bottom: 30px;
+        }
+
+        .client-info h3 {
+            color: #f35b25;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .client-info p {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.13rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #f35b25;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #ff7849;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(243, 91, 37, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e3e3e3;
+            border: 2px solid #e3e3e3;
+        }
+
+        .btn-secondary:hover {
+            background: #e3e3e3;
+            color: #181c20;
+            transform: translateY(-3px);
+        }
+
+        /* Plans Section */
+        .plans {
+            padding: 100px 0;
+            background: #191e23;
+        }
+
+        .plans h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #f35b25;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .plan-card {
+            background: #20262c;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(243, 91, 37, 0.2);
+            border-color: #f35b25;
+        }
+
+        .plan-card.featured {
+            border-color: #f35b25;
+            box-shadow: 0 8px 32px rgba(243, 91, 37, 0.2);
+        }
+
+        .plan-card.featured::before {
+            content: "RECOMENDADO";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #f35b25;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            color: #f35b25;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .plan-description {
+            color: #e3e3e3;
+            opacity: 0.9;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #23282e;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .plan-features li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            color: #f35b25;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-category {
+            color: #f35b25;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature-category:first-child {
+            margin-top: 0;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 0;
+            background: #181c20;
+        }
+
+        .comparison h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .comparison-table {
+            background: #20262c;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #23282e;
+        }
+
+        .comparison-table th {
+            background: #1a1f24;
+            color: #f35b25;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            color: #e3e3e3;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-yes {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .check-no {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        /* Recommendation */
+        .recommendation {
+            padding: 100px 0;
+            background: #191e23;
+            text-align: center;
+        }
+
+        .recommendation h2 {
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .recommendation-card {
+            background: #20262c;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1.5px solid #f35b25;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(243, 91, 37, 0.2);
+        }
+
+        .recommendation-card h3 {
+            color: #f35b25;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .recommendation-reasons {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .recommendation-reasons li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .recommendation-reasons li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            color: #f35b25;
+        }
+
+        /* Next Steps */
+        .next-steps {
+            padding: 100px 0;
+            background: #181c20;
+        }
+
+        .next-steps h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: #20262c;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1.5px solid #23282e;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: #f35b25;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .step-card h3 {
+            color: #f35b25;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        .step-card p {
+            color: #e3e3e3;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            text-align: center;
+            background: #191e23;
+        }
+
+        .contact h2 {
+            font-size: 2.3rem;
+            color: #f35b25;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .contact p {
+            font-size: 1.08rem;
+            color: #e3e3e3;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.13rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            margin-right: 20px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1ea952;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .validity {
+            background: #20262c;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1.5px solid #23282e;
+            margin-top: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .validity p {
+            color: #f35b25;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .bonus {
+            background: #20262c;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1.5px solid #f35b25;
+            margin-top: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 32px rgba(243, 91, 37, 0.2);
+        }
+
+        .bonus h3 {
+            color: #f35b25;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bonus ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .bonus li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .bonus li:before {
+            content: "🎁";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1.5px solid #23282e;
+            background: #181c20;
+        }
+
+        footer p {
+            color: #e3e3e3;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                font-size: 16px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .whatsapp-btn {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    🍔 Sistema Hambúrgueria
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#comparacao">Comparação</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-icon">🍔</div>
+                <div class="hero-text">
+                    <h1>Sistema Completo para Hambúrgueria</h1>
+                    <p>Proposta comercial personalizada para revolucionar a gestão do seu negócio com tecnologia moderna e eficiente.</p>
+                </div>
+                <div class="client-info">
+                    <h3>Proposta para:</h3>
+                    <p><strong>Cliente:</strong> Yasmin Soares</p>
+                    <p><strong>WhatsApp:</strong> (86) 99500-6541</p>
+                    <p><strong>Data:</strong> 15/07/2025</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#planos" class="btn btn-primary">
+                        💰 Ver Planos
+                    </a>
+                    <a href="#contato" class="btn btn-secondary">
+                        📱 Falar Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="plans" id="planos">
+        <div class="container">
+            <h2 class="animate-on-scroll">Escolha o Plano Ideal</h2>
+            <div class="plans-grid">
+                <div class="plan-card animate-on-scroll">
+                    <div class="plan-header">
+                        <h3 class="plan-title">PLANO ESSENCIAL</h3>
+                        <div class="plan-price">R$ 1.500</div>
+                        <p class="plan-description">Solução completa para começar com tudo que você precisa</p>
+                    </div>
+                    <ul class="plan-features">
+                        <div class="feature-category">Sistema PDV Completo</div>
+                        <li>Cadastro de produtos e cardápio</li>
+                        <li>Montagem de pedidos personalizados</li>
+                        <li>Controle de vendas no balcão</li>
+                        <li>Emissão de cupons/recibos</li>
+                        <li>Controle de caixa básico</li>
+                        
+                        <div class="feature-category">Controle de Estoque Básico</div>
+                        <li>Cadastro de ingredientes</li>
+                        <li>Controle de entrada/saída</li>
+                        <li>Relatório de estoque atual</li>
+                        
+                        <div class="feature-category">Relatórios Simples</div>
+                        <li>Vendas diárias</li>
+                        <li>Produtos mais vendidos</li>
+                        <li>Fechamento de caixa</li>
+                        
+                        <div class="feature-category">Gestão de Clientes</div>
+                        <li>Cadastro básico de clientes</li>
+                        <li>Histórico de pedidos</li>
+                        
+                        <div class="feature-category">Suporte e Entrega</div>
+                        <li>Entrega e instalação</li>
+                        <li>Treinamento básico (2 horas)</li>
+                        <li>30 dias de suporte técnico</li>
+                        <li>Prazo: 30 dias para entrega</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Escolher Essencial
+                    </a>
+                </div>
+
+                <div class="plan-card featured animate-on-scroll">
+                    <div class="plan-header">
+                        <h3 class="plan-title">PLANO COMPLETO</h3>
+                        <div class="plan-price">R$ 2.500</div>
+                        <p class="plan-description">Tudo do Essencial + recursos avançados para crescer sem limites</p>
+                    </div>
+                    <ul class="plan-features">
+                        <div class="feature-category">Sistema PDV Avançado</div>
+                        <li>Controle de acesso com níveis</li>
+                        <li>Personalização com logo e cores</li>
+                        <li>Funcionamento offline e online</li>
+                        <li>Backup automático na nuvem</li>
+                        
+                        <div class="feature-category">Controle de Estoque Avançado</div>
+                        <li>Alertas de baixo estoque</li>
+                        <li>Controle de fornecedores</li>
+                        <li>Entrada automática por compras</li>
+                        <li>Relatório de perdas e vencimentos</li>
+                        
+                        <div class="feature-category">Relatórios Gerenciais Completos</div>
+                        <li>Dashboard com gráficos</li>
+                        <li>Análise de rentabilidade por produto</li>
+                        <li>Fluxo de caixa detalhado</li>
+                        <li>Relatórios fiscais</li>
+                        <li>Exportação para Excel/PDF</li>
+                        
+                        <div class="feature-category">Cardápio Digital QR Code</div>
+                        <li>Cliente escaneia e vê cardápio</li>
+                        <li>Sempre sincronizado</li>
+                        <li>Reduz custos de impressão</li>
+                        
+                        <div class="feature-category">Gestão Avançada de Clientes</div>
+                        <li>Programa de fidelidade básico</li>
+                        <li>Aniversariantes do mês</li>
+                        
+                        <div class="feature-category">Suporte Premium</div>
+                        <li>Treinamento da equipe (4 horas)</li>
+                        <li>60 dias de suporte técnico</li>
+                        <li>Atualizações por 6 meses</li>
+                        <li>App mobile Android incluído</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Escolher Completo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison" id="comparacao">
+        <div class="container">
+            <h2 class="animate-on-scroll">Comparativo Rápido</h2>
+            <div class="comparison-table animate-on-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Funcionalidade</th>
+                            <th>Essencial</th>
+                            <th>Completo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sistema PDV</td>
+                            <td class="check-yes">✅ Básico</td>
+                            <td class="check-yes">✅ Avançado</td>
+                        </tr>
+                        <tr>
+                            <td>Controle Estoque</td>
+                            <td class="check-yes">✅ Simples</td>
+                            <td class="check-yes">✅ Com alertas</td>
+                        </tr>
+                        <tr>
+                            <td>Relatórios</td>
+                            <td class="check-yes">✅ 3 tipos</td>
+                            <td class="check-yes">✅ + 8 tipos</td>
+                        </tr>
+                        <tr>
+                            <td>Cardápio QR</td>
+                            <td class="check-no">❌</td>
+                            <td class="check-yes">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Níveis de acesso</td>
+                            <td class="check-no">❌</td>
+                            <td class="check-yes">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Personalização</td>
+                            <td class="check-no">❌</td>
+                            <td class="check-yes">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Backup nuvem</td>
+                            <td class="check-no">❌</td>
+                            <td class="check-yes">✅</td>
+                        </tr>
+                        <tr>
+                            <td>App mobile</td>
+                            <td class="check-no">❌</td>
+                            <td class="check-yes">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Suporte</td>
+                            <td class="check-yes">30 dias</td>
+                            <td class="check-yes">60 dias</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="recommendation">
+        <div class="container">
+            <h2 class="animate-on-scroll">Nossa Recomendação</h2>
+            <div class="recommendation-card animate-on-scroll">
+                <h3>PLANO COMPLETO (R$ 2.500)</h3>
+                <p style="margin-bottom: 20px;">Baseado no seu orçamento e necessidades, recomendamos o Plano Completo porque:</p>
+                <ul class="recommendation-reasons">
+                    <li>Atende 100% das suas necessidades</li>
+                    <li>Controle total do negócio</li>
+                    <li>Relatórios para tomar decisões</li>
+                    <li>Sistema preparado para crescimento</li>
+                </ul>
+                <a href="#contato" class="btn btn-primary">
+                    Quero o Plano Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-steps">
+        <div class="container">
+            <h2 class="animate-on-scroll">Próximos Passos</h2>
+            <div class="steps-grid">
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3>Confirme a proposta</h3>
+                    <p>Escolha o plano que mais se adequa às suas necessidades e entre em contato conosco.</p>
+                </div>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>Assinatura do contrato</h3>
+                    <p>Assinatura digital do contrato com todas as especificações acordadas.</p>
+                </div>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>Sinal de 50%</h3>
+                    <p>Pagamento de 50% do valor para início do desenvolvimento do sistema.</p>
+                </div>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <h3>Reunião de alinhamento</h3>
+                    <p>Detalhamento das necessidades e funcionalidades do sistema.</p>
+                </div>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">5</div>
+                    <h3>Desenvolvimento</h3>
+                    <p>Implementação do sistema em até 30 dias.</p>
+                </div>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">6</div>
+                    <h3>Entrega e treinamento</h3>
+                    <p>Entrega do sistema pronto e treinamento da equipe.</p>
+                </div>
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">7</div>
+                    <h3>Saldo final</h3>
+                    <p>Pagamento do saldo restante na entrega do sistema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2 class="animate-on-scroll">Dúvidas? Fale com a gente!</h2>
+            <p class="animate-on-scroll">Entre em contato pelo WhatsApp ou e-mail para tirar dúvidas, negociar ou confirmar a proposta. Resposta rápida e atendimento personalizado!</p>
+            <a href="https://wa.me/5586995006541?text=Olá!%20Quero%20falar%20sobre%20a%20proposta%20da%20hamburgueria." target="_blank" class="whatsapp-btn animate-on-scroll">
+                📱 Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section class="bonus">
+        <div class="container">
+            <div class="bonus animate-on-scroll">
+                <h3>🔥 Bônus Especial</h3>
+                <ul>
+                    <li>Treinamento extra de 2 horas</li>
+                    <li>Template de cardápio personalizado</li>
+                    <li>Suporte prioritário no WhatsApp</li>
+                </ul>
+                <p>Se confirmar hoje, você garante todos esses bônus grátis!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sistema Hambúrgueria. Feito com ❤️ e tecnologia.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
